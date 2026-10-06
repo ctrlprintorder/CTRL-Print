@@ -1,0 +1,207 @@
+{
+  "entities": {
+    "settings": {
+      "title": "Settings",
+      "description": "Store configuration and credentials",
+      "type": "object",
+      "properties": {
+        "company": { "type": "string" },
+        "phone": { "type": "string" },
+        "address": { "type": "string" },
+        "bank": { "type": "string" },
+        "paymentMethods": { "type": "string" },
+        "tnc": { "type": "string" },
+        "user": { "type": "string" },
+        "pass": { "type": "string" }
+      }
+    },
+    "bahan": {
+      "title": "Bahan Baku",
+      "description": "Stock items for production",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "satuan": { "type": "string" },
+        "jumlah": { "type": "number" },
+        "min": { "type": "number" }
+      },
+      "required": ["nama", "jumlah"]
+    },
+    "produk": {
+      "title": "Produk",
+      "description": "Products and services catalog",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tipe": { "type": "string" },
+        "nama": { "type": "string" },
+        "desc": { "type": "string" },
+        "bahanId": { "type": "string" },
+        "bahanQty": { "type": "number" },
+        "hpp": { "type": "number" },
+        "harga": { "type": "number" }
+      },
+      "required": ["nama", "harga"]
+    },
+    "vendor": {
+      "title": "Vendor",
+      "description": "Suppliers and vendors directory",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "wa": { "type": "string" },
+        "kategori": { "type": "string" },
+        "alamat": { "type": "string" }
+      },
+      "required": ["nama"]
+    },
+    "customer": {
+      "title": "Customer",
+      "description": "Customers database",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "wa": { "type": "string" },
+        "alamat": { "type": "string" }
+      },
+      "required": ["nama"]
+    },
+    "invoice": {
+      "title": "Invoice",
+      "description": "Sales transactions and quotations",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tipeDoc": { "type": "string" },
+        "noInv": { "type": "string" },
+        "tglInv": { "type": "string" },
+        "tempoInv": { "type": "string" },
+        "namaCust": { "type": "string" },
+        "waCust": { "type": "string" },
+        "alamatCust": { "type": "string" },
+        "items": { "type": "array" },
+        "diskonTambahan": { "type": "number" },
+        "totalHPP": { "type": "number" },
+        "grandTotal": { "type": "number" },
+        "dibayar": { "type": "number" },
+        "sisaTertagih": { "type": "number" },
+        "statusBayar": { "type": "string" },
+        "statusJob": { "type": "string" },
+        "historyBayar": { "type": "array" }
+      },
+      "required": ["noInv", "namaCust"]
+    },
+    "pengeluaran": {
+      "title": "Pengeluaran",
+      "description": "Expenses records",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tgl": { "type": "string" },
+        "kategori": { "type": "string" },
+        "vendor": { "type": "string" },
+        "ket": { "type": "string" },
+        "nominal": { "type": "number" }
+      },
+      "required": ["tgl", "nominal"]
+    },
+    "po_vendor": {
+      "title": "PO Vendor",
+      "description": "Purchase orders and work instructions for vendors",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "noPo": { "type": "string" },
+        "vendor": { "type": "string" },
+        "tglPo": { "type": "string" },
+        "tglSelesai": { "type": "string" },
+        "jamSelesai": { "type": "string" },
+        "driveUrl": { "type": "string" },
+        "modalTotal": { "type": "number" },
+        "catatan": { "type": "string" },
+        "items": { "type": "array" }
+      },
+      "required": ["noPo", "vendor"]
+    },
+    "counters": {
+      "title": "Counters",
+      "description": "Auto increment document counters",
+      "type": "object",
+      "properties": {
+        "nextInvNumber": { "type": "number" },
+        "nextQuoteNumber": { "type": "number" },
+        "nextPoNumber": { "type": "number" }
+      }
+    },
+    "testimonials": {
+      "title": "Customer Testimonials",
+      "description": "Customer reviews, ratings and testimonials for print orders",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "business": { "type": "string" },
+        "city": { "type": "string" },
+        "product": { "type": "string" },
+        "category": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "date": { "type": "string" },
+        "verified": { "type": "boolean" },
+        "avatarColor": { "type": "string" },
+        "status": { "type": "string" },
+        "isHidden": { "type": "boolean" },
+        "invoiceNo": { "type": "string" }
+      },
+      "required": ["name", "comment", "rating"]
+    },
+    "notifications": {
+      "title": "System Notifications",
+      "description": "System-wide notification messages and alerts",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "desc": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "isRead": { "type": "boolean" },
+        "category": { "type": "string" },
+        "linkTab": { "type": "string" },
+        "linkParam": { "type": "string" },
+        "referenceId": { "type": "string" },
+        "referenceNo": { "type": "string" },
+        "badge": { "type": "string" }
+      },
+      "required": ["title", "desc"]
+    },
+    "notifications_meta": {
+      "title": "Notification Metadata",
+      "description": "Cross-device read state and notification sync tracking",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "readIds": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id"]
+    },
+    "finishing_groups": {
+      "title": "Finishing Groups",
+      "description": "Custom finishing and add-on option presets for printing products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "deskripsi": { "type": "string" },
+        "tipePilihan": { "type": "string" },
+        "kategoriProduk": { "type": "array" },
+        "options": { "type": "array" }
+      },
+      "required": ["id", "nama", "options"]
+    }
+  }
+}

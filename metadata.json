@@ -1,0 +1,6 @@
+{
+  "name": "CTRL PRINT - Sales & Vendor System",
+  "description": "Sistem Manajemen Penjualan Percetakan, SPK Vendor, Stok Bahan Baku, Pengeluaran & Riwayat Faktur dengan Sinkronisasi Cloud Firestore.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
